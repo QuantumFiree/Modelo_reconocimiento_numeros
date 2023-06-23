@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        
+        .title-container{
+            color:white;
+            margin-left: 210px;
+            background-color: rgb(29, 214, 77);
+            width: 360px;
+            height: 50px;
+            border-radius: 10px;
+            padding-left: 20px
+        }
+        .container-custom{
+            padding-left: 50px;
+            padding-top: 20px;
+            padding-right: 50px;
+            margin-left: 230px;
+            margin-top: 60px;
+            background-color: rgb(18, 19, 34);
+            width: 800px;
+            height: 580px;
+            border-radius: 10px
+        }
+
+        .form-custom{
+            width: 280px;
+            height: 50px;
+            background-color: rgb(255, 89, 0);
+            padding: 50px;
+            margin-left: 210px;
+            border-radius: 10px;
+        }
+
+        .subtitle-custom{
+            color: rgb(255, 103, 22);
+            margin-left: 300px;
+            margin-top: 50px;
+            
+        }
+
+        .btn-custom{
+            padding: 10px 20px;
+            background-color: rgb(236, 41, 18);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            margin-top: 20px;
+            margin-left: 70px;
+        }
+
+        .num-custom{
+            color: white;
+            font-size: 90px;
+            margin-left: 370px;
+            background-color: rgb(29, 214, 77);
+            padding: 10px;
+            width: 95px;
+            height: 95px;
+            position: absolute;
+            top: 450px;
+            left: 258px;
+            border-radius: 10px
+        }
+
+        .title-result{
+            color: rgb(255, 103, 22);
+            margin-left: 325px;
+            margin-top: 40px;
+        }
+
+        .p-custom{
+            color: white; 
+            margin-left: 150px
+        }
+
+        .wait-custom{
+            color: white;
+            font-size: 90px;
+            margin-left: 370px;
+            padding: 10px;
+            width: 95px;
+            height: 110px;
+            position: absolute;
+            top: 430px;
+            left: 258px;
+        }
+    </style>
+</head>
+<body style="background-color: grey">
+    <div class="container-custom">
+        <div class="title-container">
+            <h1 class="title-custom">Modelo de red neuronal</h1>
+        </div>
+        <h2 class="subtitle-custom">Reconocer numeros</h2>
+        <p class="p-custom">Uso: Carga una imagen de un numero hecho a mano y el modelo lo reconocera</p>
+        <form class="form-custom" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.image_upload }}
+        </br>
+            <button class="btn-custom" type="submit">Subir imagen</button>
+        </form>
+
+        <h2 class="title-result">RESULTADO</h2>
+        {%if resultado == "1" %}
+            <h2 class="num-custom">&#x24f5;</h2>
+        {%elif resultado == "2" %}
+            <h2 class="num-custom">&#x24f6;</h2>
+        {%elif resultado == "3" %}
+            <h2 class="num-custom">&#x24f7;</h2>
+        {%elif resultado == "4" %}
+            <h2 class="num-custom">&#x24f8;</h2>
+        {%elif resultado == "5" %}
+            <h2 class="num-custom">&#x24f9;</h2>
+        {%elif resultado == "6" %}
+            <h2 class="num-custom">&#x24fa;</h2>
+        {%elif resultado == "7" %}
+            <h2 class="num-custom">&#x24fb;</h2>
+        {%elif resultado == "8" %}
+            <h2 class="num-custom">&#x24fc;</h2>
+        {%elif resultado == "9"%}
+            <h2 class="num-custom">&#x24fd;</h2>
+        {%else%}
+            <h2 class="wait-custom">&#8987;</h2>
+        {%endif%}
+    </div>
+</body>
+</html>
